@@ -30,6 +30,9 @@ class App extends Component {
           todo.complete = !todo.complete
         return todo
       })
+    },
+    () => {
+      localStorage.Todos = JSON.stringify(this.state.todos)
     })
   }
 
@@ -39,7 +42,7 @@ class App extends Component {
       this.setState({
         todos : this.state.todos.filter(todo => todo.id !== id)
       },
-      // callback
+      // callback to add the data in the local storage
       () => {
         let todosObj = JSON.parse(localStorage.Todos)
         todosObj = todosObj.filter(t => t.id !== id)

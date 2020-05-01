@@ -10,10 +10,10 @@ class Item extends Component {
     }
 
     render() {
-        const { id, title } = this.props.data 
+        const { id, title, complete } = this.props.data 
         return (
             <div className='todo_item' style={this.getStyle()}>
-                <input type='checkbox' onChange={this.props.toggleComplete.bind(this, id)} /> {title}
+                <input type='checkbox' onChange={this.props.toggleComplete.bind(this, id)} checked={complete} /> {title}
                 <button className='del_btn' onClick={this.props.delTodo.bind(this, id)}>Delete</button>
             </div>
         )
